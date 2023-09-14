@@ -1,8 +1,27 @@
 <div class="container">
   <div class="row">
-    <div *ngFor="let item of dataAry" class="card col-md-4">
-      <p>{{item.strMeal}}</p>
+    <!--    <div *ngFor="let item of dataAry" class="card col-md-4">-->
+    <!--      <p>{{item.strMeal}}</p>-->
 
+    <!--    </div>-->
+    <p>{{title}}</p>
+<!--    <p>{{obj.name}}</p>-->
+<!--    <p>{{obj.bool}}</p>-->
+
+    <div class="container">
+      <div class="alert alert-success" *ngFor="let item of obj">
+        <p>{{item.name}}</p>
+        <p>{{item.age}}</p>
+        <p>{{item.bool}}</p>
+            <p *ngIf="item.bool; else templateOne">It's True</p>
+
+            <ng-template #templateOne>
+              It is false;
+            </ng-template>
+
+      </div>
     </div>
+
+
   </div>
 </div>

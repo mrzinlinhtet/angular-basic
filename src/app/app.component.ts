@@ -8,18 +8,38 @@ import {IMeal} from "./IMeal";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // title = 'Startup';
+  title: String = 'Startup';
   // head = ["One", "Two", "Three"];
 
-  dataAry!: IMeal[] ;
+  dataAry!: IMeal[];
+
   constructor(private bm: BmService) {
   }
 
-  ngOnInit(): void {
-  this.bm.getAllMeal().subscribe(
-    response => {this.dataAry = response.meals
-    console.log(this.dataAry);
+  obj = [
+    {
+      name: "Mg Mg",
+      age: 20,
+      bool: true
+    },
+    {
+      name: "Aung Mg",
+      age: 22,
+      bool: false
+    },
+    {
+      name: "Tun Mg",
+      age: 23,
+      bool: true
     }
-  )
+  ]
+
+  ngOnInit(): void {
+    this.bm.getAllMeal().subscribe(
+      response => {
+        this.dataAry = response.meals
+        console.log(this.dataAry);
+      }
+    )
   }
 }
